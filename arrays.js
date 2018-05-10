@@ -14,9 +14,16 @@ function getActorsBeforeYear(year) {
     return actors.filter(function(actor){
         return actor.year < year;
     });
+
+    actors.forEach(function (actor) {
+        if (actor.year < year) {
+            //change html
+        } else {
+            //do nothing
+        }
+    })
 }
 var lessThen = getActorsBeforeYear(1950);
-console.log(lessThen);
 
 //2. Получить массив который будет содержать полное имя каждого актера
 
@@ -25,32 +32,33 @@ var names = actors.map(function(actor){
     //return actor.firstName + ' ' + actor.lastName; 
 });
 
-console.log(names)
 
 //3. Отсортировать массив по возрасту актеров - от старшего
 
 actors.sort(function(a, b){
     return a.year - b.year
 });
-console.log(actors)
 
 //4. Какой общий возраст всех актеров (предположим что ворзраст актера равен 2018-actor.year)
 
-
-var yearsByActor = actors.map(function (actor) {
-    return 2018 - actor.year;
-})
-console.log(yearsByActor);
 var sum = actors.reduce(function(res, actor){
-    console.log(res)
     return res + (2018 - actor.year);
 }, 0);
 
-console.log(sum)
+
+
+
+
+
+
+
 
 var people = ['John, Lock', 'Colin, Hull', 'Jane, Fox', 'Nick, Milner', 'Sarah, Connor', 'David, Smith', 'Hannah, Rose',
 'Peter, Todd', 'Frank, Sample', 'Luke, Pope', 'Alissa, Moss', 'Sam, Washington', 'Eddie, Cope', 'Lucy, Bower', 'Andre, Cox',
 'Monica, Bell', 'Richard, Nowell', 'Chris, Paxton', 'John, Cho', 'Tom, Price', 'Kate, Ritter', 'Mike, Lee', 'Kristin, Spawn',]
+
+
+
 
 //5. Отсортировать в алфовитном порядке по фамилии
 people.sort(function (a, b) {
@@ -61,7 +69,6 @@ people.sort(function (a, b) {
 
 });
 
-console.log(people)
 
 
 var data = ['apple', 'banana', 'apple', 'pineapple', 'apple', 'apple', 'orange', 'banana', 'orange', 'apple', 'lemon', 'pear', 'pear', 'banana']
@@ -76,5 +83,5 @@ var fruits = data.reduce(function (obj, fruit){
     }
     return obj;
 }, {});
-console.log(fruits)
+
 
