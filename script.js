@@ -3,6 +3,33 @@
 // 1. вывести в браузер каждого актера асинхронно используя setTimeout и appendChild
 // 2. вывести в браузер каждого актера в обратном порядке  используя setTimeout и appendChild - использование цикла for - запрещено
 
+const actorsContainer = document.querySelector('#actors-list');
+
+actors.forEach(function (actor, index) {
+
+    setTimeout(function(){
+        let actorHtmlElement = document.createElement('div');
+        actorHtmlElement.classList.add('colored');
+        actorHtmlElement.textContent = `${actor.firstName} ${actor.lastName}`;
+        actorsContainer.appendChild(actorHtmlElement);
+    }, 1000 * index)
+});
+
+setTimeout(function(){
+    
+    actors.forEach(function (actor, index) {
+        setTimeout(function(){
+            let actorHtmlElement = document.createElement('p');
+            actorHtmlElement.classList.add('colored-green');
+            actorHtmlElement.textContent = `${actor.firstName} ${actor.lastName}`;
+            actorsContainer.appendChild(actorHtmlElement);
+            console.log(index + "before");
+        }, 1000 * (actors.length - index));
+        console.log(index + "after");
+    });
+}, 8000);
+
+
 //получаем html элемент куда мы выводим результат
 // const actorsListContainer = document.querySelector('#actors-list');
 
